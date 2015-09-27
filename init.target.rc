@@ -290,7 +290,7 @@ service thermal-engine /system/bin/thermal-engine
     user root
     group root
 
-service mpdecision /system/bin/mpdecision --avg_comp
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     user root
     group root system
     disabled
@@ -328,7 +328,7 @@ service time_daemon /system/bin/time_daemon
 
 # SISO-ANDR-PERF :: START Changing scheduler to row after boot complete
 on property:sys.boot_completed=1
-    write /sys/block/mmcblk0/queue/scheduler row
+    # write /sys/block/mmcblk0/queue/scheduler row
 
 # BSOD Killer
 service bsod_killer /system/bin/bsod_killer
